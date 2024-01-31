@@ -25,7 +25,7 @@ import java.io.File
 
 val stateList = mutableStateListOf<Downloader.DownloadStatus>()
 @Composable
-fun Status(modifier: Modifier){
+fun Status(modifier: Modifier=Modifier){
     Column(modifier.background(Color(0xfffafaff))) {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Text("操作状态", color = Color.Gray, fontWeight = FontWeight.SemiBold)
