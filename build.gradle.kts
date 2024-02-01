@@ -28,7 +28,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "Gradle下载器"
+            packageName = "GradleDownloader"
             packageVersion = "1.0.0"
         }
     }
