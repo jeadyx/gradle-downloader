@@ -64,15 +64,24 @@ fun ConfigTable(modifier: Modifier=Modifier) {
                 if (fileName.isNotEmpty()) {
                     gradleFileDirName = getFolderName("https://services.gradle.org/distributions/${fileName}.zip")
                     val src = "${gradleSrcUrl}/${fileName}.zip"
-                    val tar = "${gradleDir}\\wrapper\\dists\\${fileName}\\${gradleFileDirName}"
-                    val tarFilePath = "$tar\\$fileName.zip"
+                    val tarFilePath = "${gradleDir}\\wrapper\\dists\\${fileName}\\${gradleFileDirName}\\$fileName.zip"
                     val gradleFile = File(tarFilePath)
                     if (gradleFile.exists()) {
-                        appendTip("目标文件已存在 $tarFilePath")
+                        appendTaskStatus (
+                            Downloader.DownloadStatus(
+                            "目标文件已存在 $tarFilePath",
+                                src, tarFilePath
+                            )
+                        )
                         continue
                     }
                     if (File("$tarFilePath.tmp").exists()) {
-                        appendTip("检测到目标版本正在下载, 如果检测错误，请删除tmp文件\n $tarFilePath.tmp")
+                        appendTaskStatus (
+                            Downloader.DownloadStatus(
+                                "检测到目标版本正在下载, 如果检测错误，请删除tmp文件\n $tarFilePath.tmp",
+                                src, tarFilePath
+                            )
+                        )
                         continue
                     }
                     thread {

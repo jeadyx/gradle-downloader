@@ -30,7 +30,7 @@ fun main() = application {
     Window(onCloseRequest = {
         cleanTmpFiles()
         exitApplication()
-    }, title = "Gradle 下载器", icon = painterResource("images/gradle.png")) {
+    }, title = "Gradle 下载器 v1.0", icon = painterResource("images/gradle.png")) {
         App()
     }
 }
